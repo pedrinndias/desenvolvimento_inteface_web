@@ -1,0 +1,46 @@
+[
+    {
+        "id": 1,
+        "titulo": "Desenvolvimento Backend",
+        "descricao": "A espinha dorsal de qualquer aplicação. Crie APIs robustas, gerencie bancos de dados e garanta a performance e segurança do servidor.",
+        "imagem": "https://picsum.photos/seed/backend/600/400",
+        "conteudo": "A guilda de Backend é focada na construção da lógica de servidor, bancos de dados e a integração de aplicações. Trabalhamos para criar sistemas escaláveis, seguros e de alta performance que dão suporte a todas as outras frentes de desenvolvimento. Nossos membros estão sempre explorando novas arquiteturas, como microsserviços e serverless, e otimizando a entrega de dados para o frontend e mobile.",
+        "responsavel": "Alex Lima",
+        "data_inicio": "2024-01-10",
+        "tecnologias": [
+            { "id": "node", "nome": "Node.js", "logo": "fab fa-node-js" },
+            { "id": "python", "nome": "Python (Django/Flask)", "logo": "fab fa-python" },
+            { "id": "java", "nome": "Java (Spring)", "logo": "fab fa-java" },
+            { "id": "php", "nome": "PHP (Laravel)", "logo": "fab fa-php" }
+        ]
+    },
+    {
+        "id": 2,
+        "titulo": "Desenvolvimento Frontend",
+        "descricao": "Construa interfaces ricas, reativas e intuitivas que proporcionam a melhor experiência para o usuário final em qualquer dispositivo.",
+        "imagem": "https://picsum.photos/seed/frontend/600/400",
+        "conteudo": "A guilda de Frontend é apaixonada por criar interfaces de usuário que sejam ao mesmo tempo bonitas e funcionais. Utilizamos os frameworks mais modernos do mercado para construir Single Page Applications (SPAs) e componentes reutilizáveis. Nosso foco está na performance, acessibilidade e na fidelidade do design, garantindo que a experiência do usuário seja impecável em qualquer navegador ou tamanho de tela.",
+        "responsavel": "Bruna Costa",
+        "data_inicio": "2024-02-15",
+        "tecnologias": [
+            { "id": "react", "nome": "React", "logo": "fab fa-react" },
+            { "id": "angular", "nome": "Angular", "logo": "fab fa-angular" },
+            { "id": "vue", "nome": "Vue.js", "logo": "fab fa-vuejs" },
+            { "id": "js", "nome": "JavaScript Nativo", "logo": "fab fa-js-square" }
+        ]
+    },
+    {
+        "id": 3,
+        "titulo": "Infraestrutura & DevOps",
+        "descricao": "Automatize, orquestre e monitore a infraestrutura como código. Garanta a estabilidade e a escalabilidade dos projetos na nuvem.",
+        "imagem": "https://picsum.photos/seed/devops/600/400",
+        "conteudo": "A guilda de Infra & DevOps é a cola que une o desenvolvimento à produção. Somos responsáveis por todo o ciclo de vida da aplicação, desde a integração e entrega contínua (CI/CD) até o monitoramento e a orquestração de contêineres. Nosso objetivo é criar um ambiente de desenvolvimento e produção ágil, resiliente e altamente automatizado, permitindo que os desenvolvedores foquem em criar valor.",
+        "responsavel": "Carlos Souza",
+        "data_inicio": "2024-03-20",
+        "tecnologias": [
+            { "id": "docker", "nome": "Docker", "logo": "fab fa-docker" },
+            { "id": "aws", "nome": "AWS", "logo": "fab fa-aws" },
+            { "id": "git", "nome": "Git & GitHub", "logo": "fab fa-github" }
+        ]
+    }
+]
