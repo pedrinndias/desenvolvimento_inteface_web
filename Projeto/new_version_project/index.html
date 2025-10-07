@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Organize | Onde o Código Encontra a Colaboração</title>
+    <title>Organize | Hub de Colaboração para DEVs</title>
     
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -19,45 +19,132 @@
             <div class="text-2xl font-bold text-white">
                 <a href="index.html"><i class="fas fa-sitemap mr-2 text-blue-400"></i>Organize</a>
             </div>
-            <div class="hidden md:flex items-center space-x-6">
-                <a href="index.html" class="text-gray-300 hover:text-blue-400 transition duration-300">Início</a>
-                <a href="#" class="text-gray-300 hover:text-blue-400 transition duration-300">Sobre Nós</a>
-                <a href="#" class="text-gray-300 hover:text-blue-400 transition duration-300">Guildas</a>
-                <a href="#" class="text-gray-300 hover:text-blue-400 transition duration-300">Contato</a>
-            </div>
-            <div class="flex items-center">
-                 <button class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 transition duration-300 flex items-center">
-                    <i class="fas fa-user-plus mr-2"></i>Participe
-                </button>
-            </div>
+
+            <div id="central-nav-links" class="hidden md:flex items-center space-x-6">
+                </div>
+
+            <div id="right-nav-action" class="flex items-center">
+                </div>
         </nav>
     </header>
 
     <div class="container mx-auto px-6 py-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
-        
         <main class="lg:col-span-2">
             <section id="inicio" class="hero-bg rounded-lg p-8 md:p-12 text-center md:text-left mb-8">
-                <h1 class="text-3xl md:text-5xl font-bold text-white mb-4">Onde o Código Encontra a Colaboração.</h1>
-                <p class="text-md md:text-lg text-gray-400 max-w-2xl">Organize é uma plataforma para desenvolvedores. Forme equipes, explore tecnologias e construa projetos incríveis. Junte-se a guildas, aprimore suas habilidades e transforme ideias em código funcional.</p>
+                <h1 class="text-3xl md:text-5xl font-bold text-white mb-4">O Hub de Soluções para Desenvolvedores.</h1>
+                <p class="text-md md:text-lg text-gray-400 max-w-2xl">Preso num problema de código? O nosso hub conecta-o a outras pessoas desenvolvedoras para resolver desafios reais. Encontre uma equipe, contribua e construa soluções em conjunto.</p>
             </section>
             
-            <img src="https://picsum.photos/seed/mainbanner/1200/600" alt="Equipe de desenvolvedores colaborando em um projeto" class="w-full h-auto rounded-lg shadow-md">
+            <img src="https://picsum.photos/seed/mainbanner_collab/1200/600" alt="Equipa de programadores a colaborar num projeto" class="w-full h-auto rounded-lg shadow-md">
         </main>
 
         <aside class="lg:col-span-1">
-            <h2 class="text-2xl font-bold text-white mb-6 text-center lg:text-left">Nossas Guildas</h2>
-            <div id="info-cards" class="space-y-6">
-                </div>
+            <h2 class="text-2xl font-bold text-white mb-6 text-center lg:text-left">Equipes Ativas</h2>
+            <div id="info-cards" class="space-y-6"></div>
         </aside>
     </div>
+
+    <section id="how-it-works" class="bg-gray-800 py-16">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold text-white">Como Funciona?</h2>
+            <p class="text-gray-400 mt-2 mb-12">Em três passos simples, você sai de um problema para uma solução colaborativa.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="text-center">
+                    <div class="flex items-center justify-center h-16 w-16 bg-blue-500 text-white rounded-full mx-auto mb-4">
+                        <i class="fas fa-search text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">1. Encontre uma Equipe</h3>
+                    <p class="text-gray-400">Navegue pelas nossas equipas ativas (Backend, Frontend, DevOps) e encontre a área relacionada com o seu desafio.</p>
+                </div>
+                <div class="text-center">
+                    <div class="flex items-center justify-center h-16 w-16 bg-blue-500 text-white rounded-full mx-auto mb-4">
+                        <i class="fas fa-users text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">2. Junte-se e Colabore</h3>
+                    <p class="text-gray-400">Participe das discussões, partilhe o seu problema ou ajude a resolver os desafios de outros membros da comunidade.</p>
+                </div>
+                <div class="text-center">
+                    <div class="flex items-center justify-center h-16 w-16 bg-blue-500 text-white rounded-full mx-auto mb-4">
+                        <i class="fas fa-lightbulb text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">3. Crie Soluções</h3>
+                    <p class="text-gray-400">Trabalhe em conjunto para construir código funcional, aprender novas tecnologias e melhorar as suas competências.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tech-spotlight" class="py-16">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold text-white">Tecnologias em Destaque</h2>
+            <p class="text-gray-400 mt-2 mb-12">Clique num ícone para aprender mais sobre as ferramentas que as nossas equipas utilizam.</p>
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12">
+                <a href="https://react.dev/" title="React">
+                    <i class="fab fa-react text-gray-400 text-5xl hover:text-blue-400 transition-colors"></i>
+                </a>
+                <a href="https://nodejs.org/pt" title="Node.js">
+                    <i class="fab fa-node-js text-gray-400 text-5xl hover:text-blue-400 transition-colors"></i>
+                </a>
+                <a href="https://www.python.org/" title="Python">
+                    <i class="fab fa-python text-gray-400 text-5xl hover:text-blue-400 transition-colors"></i>
+                </a>
+                <a href="https://www.docker.com/" title="Docker" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-docker text-gray-400 text-5xl hover:text-blue-400 transition-colors"></i>
+                </a>
+                <a href="https://aws.amazon.com/" title="AWS" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-aws text-gray-400 text-5xl hover:text-blue-400 transition-colors"></i>
+                </a>
+                <a href="https://git-scm.com/" title="Git" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-git-alt text-gray-400 text-5xl hover:text-blue-400 transition-colors"></i>
+                </a>
+                <a href="https://vuejs.org/" title="Vue.js" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-vuejs text-gray-400 text-5xl hover:text-blue-400 transition-colors"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="news-section" class="bg-gray-800 py-16">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-white">Notícias e Tendências</h2>
+                <p class="text-gray-400 mt-2">Mantenha-se atualizado com as últimas novidades do mundo da tecnologia.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <article class="bg-gray-700 rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 transition-transform duration-300">
+                    <img src="https://picsum.photos/seed/ainews/600/400" alt="Inteligência Artificial" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <p class="text-sm text-blue-400 font-semibold">Inteligência Artificial</p>
+                        <h3 class="font-bold text-gray-100 text-xl mt-2">O Avanço dos Modelos de Linguagem e o Impacto no Desenvolvimento</h3>
+                        <p class="text-gray-400 mt-3">Como a IA Generativa está a transformar a forma como escrevemos código, desde a autocompletação inteligente até à geração de testes unitários.</p>
+                    </div>
+                </article>
+                <article class="bg-gray-700 rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 transition-transform duration-300">
+                    <img src="https://picsum.photos/seed/wasmnews/600/400" alt="WebAssembly" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <p class="text-sm text-blue-400 font-semibold">Frontend</p>
+                        <h3 class="font-bold text-gray-100 text-xl mt-2">WebAssembly (Wasm): O Futuro da Performance na Web?</h3>
+                        <p class="text-gray-400 mt-3">Entenda como o WebAssembly permite executar código de alto desempenho (C++, Rust) diretamente no navegador, abrindo portas para aplicações complexas.</p>
+                    </div>
+                </article>
+                <article class="bg-gray-700 rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 transition-transform duration-300">
+                    <img src="https://picsum.photos/seed/jsnews/600/400" alt="JavaScript" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <p class="text-sm text-blue-400 font-semibold">Core Tech</p>
+                        <h3 class="font-bold text-gray-100 text-xl mt-2">Novas Features do ECMAScript: O Que Esperar para o JavaScript</h3>
+                        <p class="text-gray-400 mt-3">Explore as propostas que estão a moldar o futuro do JavaScript, incluindo melhorias de sintaxe, novos operadores e APIs para o dia a dia.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
 
     <section id="blog-section" class="container mx-auto px-6 py-12">
         <div class="text-center mb-10">
             <h2 class="text-3xl font-bold text-white">Artigos & Insights</h2>
             <p class="text-gray-400 mt-2">Dicas, tutoriais e discussões sobre o universo do desenvolvimento de software.</p>
         </div>
-        <div id="posts-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            </div>
+        <div id="posts-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
     </section>
 
     <footer class="main-footer bg-gray-800 text-white py-12 mt-8">
@@ -73,5 +160,6 @@
     </footer>
 
     <script src="app.js" defer></script>
+    <script src="auth.js"></script>
 </body>
 </html>
