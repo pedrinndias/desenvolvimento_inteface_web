@@ -1,27 +1,23 @@
 document.addEventListener('DOMContentLoaded', function() {
     async function main() {
         try {
-            const [equipesResponse, blogResponse] = await Promise.all([
-                fetch('dados.json'),
-                fetch('blog.json')
-            ]);
-
+            // Agora buscamos apenas o arquivo que existe
+            const equipesResponse = await fetch('dados.json');
             const dadosEquipes = await equipesResponse.json();
-            const dadosBlog = await blogResponse.json();
 
             // Seletores dos contêineres em todas as páginas
             const infoCardsContainer = document.getElementById('info-cards');
             const detalheContainer = document.getElementById('detalhe-container');
-            const postsContainer = document.getElementById('posts-container');
-            const equipesContainer = document.getElementById('equipes-container'); // Container da nova página
+            // A linha abaixo foi removida pois não estamos mais usando o blog
+            // const postsContainer = document.getElementById('posts-container'); 
+            const equipesContainer = document.getElementById('equipes-container');
 
             // Renderiza o conteúdo dependendo da página que está aberta
             if (infoCardsContainer) { // Se for a página inicial
                 renderInfoCards(dadosEquipes);
             }
-            if (postsContainer) { // Se for a página inicial
-                renderBlogPosts(dadosBlog);
-            }
+            // A lógica do blog foi removida
+            // if (postsContainer) { ... }
             if (detalheContainer) { // Se for a página de detalhes
                 renderDetalhes(dadosEquipes);
             }
@@ -36,43 +32,81 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Esta função renderiza os cards na BARRA LATERAL da Home
     function renderInfoCards(dados) {
-        const infoCardsContainer = document.getElementById('info-cards');
-        infoCardsContainer.innerHTML = '';
-        dados.forEach(card => {
-            const cardElement = `
-                <a href="detalhes.html?id=${card.id}" class="block transform hover:-translate-y-1 transition-transform duration-300 hover:shadow-xl rounded-lg">
-                    <article class="project-card bg-gray-800 rounded-lg shadow-md overflow-hidden h-full">
-                        <img src="${card.imagem}" alt="${card.titulo}" class="w-full h-40 object-cover">
-                        <div class="p-5">
-                            <h3 class="font-bold text-gray-100">${card.titulo}</h3>
-                            <p class="text-gray-400 mt-2 text-sm">${card.descricao}</p>
-                        </div>
-                    </article>
-                </a>
-            `;
-            infoCardsContainer.innerHTML += cardElement;
-        });
-    }
+    const infoCardsContainer = document.getElementById('info-cards');
+    if (!infoCardsContainer) return; // Garante que o código não quebre em outras páginas
+
+    infoCardsContainer.innerHTML = '';
+    dados.forEach(card => {
+        const vagasDisponiveis = card.vagas - card.membros.length;
+        const vagasTexto = vagasDisponiveis > 0 ? `${vagasDisponiveis} vagas abertas` : 'Equipe cheia';
+        const vagasClasse = vagasDisponiveis > 0 ? 'bg-green-600' : 'bg-red-600';
+
+        const tagsHTML = card.tecnologias.map(tag => 
+            `<span class="bg-gray-700 text-blue-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">${tag}</span>`
+        ).join('');
+
+        const cardElement = `
+            <article class="project-card bg-gray-800 rounded-lg shadow-md overflow-hidden h-full flex flex-col transform hover:-translate-y-1 transition-transform duration-300">
+                <img src="${card.imagem}" alt="${card.titulo}" class="w-full h-32 object-cover">
+                <div class="p-4 flex flex-col flex-grow">
+                    <h3 class="font-bold text-gray-100 text-md mb-2">${card.titulo}</h3>
+                    <div class="mb-3">
+                        ${tagsHTML}
+                    </div>
+                    <p class="text-gray-400 text-sm flex-grow">${card.descricao}</p>
+                    <div class="mt-4 flex justify-between items-center">
+                        <span class="text-sm font-bold text-white px-3 py-1 rounded ${vagasClasse}">
+                            ${vagasTexto}
+                        </span>
+                        <a href="equipe-chat.html?id=${card.id}" class="bg-blue-500 text-white text-sm px-4 py-2 rounded-full hover:bg-blue-600 transition duration-300">
+                            Ver Equipe
+                        </a>
+                    </div>
+                </div>
+            </article>
+        `;
+        infoCardsContainer.innerHTML += cardElement;
+    });
+}
     
     // **NOVA FUNÇÃO** para renderizar os cards na PÁGINA DE EQUIPES
     function renderEquipesPage(dados) {
-        const equipesContainer = document.getElementById('equipes-container');
-        equipesContainer.innerHTML = '';
-        dados.forEach(card => {
-            const cardElement = `
-                <a href="detalhes.html?id=${card.id}" class="block transform hover:-translate-y-1 transition-transform duration-300 hover:shadow-xl rounded-lg">
-                    <article class="project-card bg-gray-800 rounded-lg shadow-md overflow-hidden h-full flex flex-col">
-                        <img src="${card.imagem}" alt="${card.titulo}" class="w-full h-48 object-cover">
-                        <div class="p-6 flex-grow">
-                            <h3 class="font-bold text-xl text-gray-100">${card.titulo}</h3>
-                            <p class="text-gray-400 mt-2">${card.descricao}</p>
-                        </div>
-                    </article>
-                </a>
-            `;
-            equipesContainer.innerHTML += cardElement;
-        });
-    }
+    const equipesContainer = document.getElementById('equipes-container');
+    if (!equipesContainer) return; // Garante que o código não quebre em outras páginas
+
+    equipesContainer.innerHTML = '';
+    dados.forEach(card => {
+        const vagasDisponiveis = card.vagas - card.membros.length;
+        const vagasTexto = vagasDisponiveis > 0 ? `${vagasDisponiveis} vagas abertas` : 'Equipe cheia';
+        const vagasClasse = vagasDisponiveis > 0 ? 'bg-green-600' : 'bg-red-600';
+
+        const tagsHTML = card.tecnologias.map(tag => 
+            `<span class="bg-gray-700 text-blue-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">${tag}</span>`
+        ).join('');
+
+        const cardElement = `
+            <article class="project-card bg-gray-800 rounded-lg shadow-md overflow-hidden h-full flex flex-col transform hover:-translate-y-1 transition-transform duration-300">
+                <img src="${card.imagem}" alt="${card.titulo}" class="w-full h-48 object-cover">
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="font-bold text-gray-100 text-xl mb-3">${card.titulo}</h3>
+                    <div class="mb-4">
+                        ${tagsHTML}
+                    </div>
+                    <p class="text-gray-400 text-sm flex-grow">${card.descricao}</p>
+                    <div class="mt-5 flex justify-between items-center">
+                        <span class="text-sm font-bold text-white px-3 py-1 rounded ${vagasClasse}">
+                            ${vagasTexto}
+                        </span>
+                        <a href="equipe-chat.html?id=${card.id}" class="bg-blue-500 text-white text-sm px-4 py-2 rounded-full hover:bg-blue-600 transition duration-300">
+                            Ver Equipe
+                        </a>
+                    </div>
+                </div>
+            </article>
+        `;
+        equipesContainer.innerHTML += cardElement;
+    });
+}
 
     function renderBlogPosts(posts) {
         const postsContainer = document.getElementById('posts-container');
